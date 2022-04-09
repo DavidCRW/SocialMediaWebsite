@@ -61,6 +61,7 @@ img{
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    height: 50px;
 }
 .search{
     margin-right: 1rem;
@@ -90,18 +91,22 @@ img{
 .profilePicture{
     margin-right: 1rem;
     width: 37px;
+    height: 37px;
     display:flex;
     align-items: center;
 }
 .profilePicture img{
     border-radius: 10px;
+    width: 37px;
+    height: 37px;
 }
 
 /* ResponsiveNav */
 .responsiveNav{
     display: none;
     cursor: pointer;
-    margin-right: 0.6rem;
+    margin-right: 4rem;
+    position: absolute;
 }
 .responsiveNav span{
     display:block;
@@ -114,17 +119,74 @@ img{
     display: none;
     cursor: pointer;
     color:#9da9b9;
-    margin-right: 0.6rem;
+    margin-right: 6rem;
+    position: absolute;
 }
 .responsiveContacts{
     display: none;
     cursor: pointer;
     color:#9da9b9;
-    margin-right: 0.6rem;
+    position: absolute;
+    margin-right: 7.4rem;
 }
-
-
-
+.responsiveLinks{
+    display: none;
+    z-index: 10;
+    position: relative;
+    top: 170px;
+    background-color: #fafbfc;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(141, 139, 139, 0.1);
+}
+.responsiveLinks li{
+    list-style: none;
+    padding: 1rem 2rem;
+    transition-duration: 0.2s;
+}
+.linkLine{
+    height: 1px;
+    max-width: 140px;
+    margin: 0 auto;
+    background-color: #eff1f5;
+}
+.responsiveLinks li:hover{
+    background-color: #faeded;
+}
+.responsiveLinks li:last-child{
+    border: none;
+}
+.responsiveLinks a{
+    text-decoration: none;
+    color: #49607e;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+.responsiveLinks i{
+    margin-right: 5px;
+}
+.responsiveAllRequest{
+    display: none;
+    padding: 0.4rem;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    z-index: 10;
+}
+.responsiveAllRequest .requests{
+    margin-bottom: 0;
+    border-radius: 0;
+}
+.responsiveContactNames{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(141, 139, 139, 0.1);
+    position: relative;
+    z-index: 10;
+    top: 195px;
+    right: 70px;
+    display: none;
+}
 
 /* LeftSide */
 .leftSide{
@@ -174,7 +236,7 @@ img{
 }
 .linkLine{
     height: 1px;
-    width: 140px;
+    max-width: 140px;
     margin: 0 auto;
     background-color: #eff1f5;
 }
@@ -535,7 +597,6 @@ img{
     .responsiveRequests{
         display: block;
     }
-
     .container{
         max-width: 1200px;
         width: 95%;
@@ -560,6 +621,7 @@ img{
     .storyCard{
         margin: 0;
     }
+
     .storyCard.card1{
         grid-area: card1;
     }
@@ -575,6 +637,10 @@ img{
     .storyCard.card5{
         grid-area: card5;
     }
+    .create{
+        display: none;
+    }
+
 }
 
 @media(max-width: 950px){
@@ -651,4 +717,16 @@ img{
     .content .story{
         display: none;
     }
+    .logo h4{
+        display: none;
+    }
+    
+}
+
+
+
+
+/* Javascript */
+.toggle{
+    display: block;
 }
