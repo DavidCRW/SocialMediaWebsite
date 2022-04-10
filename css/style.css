@@ -431,11 +431,13 @@ img{
 .postIt .btn{
     padding: 0.8rem 1.3rem;
     margin-right: 0.5rem;
+    z-index: 100;
 }
 .postInput{
     display: flex;
     align-items: center;
     width: 100%;
+    z-index: 100;
 }
 .postInput img{
     width: 40px;
@@ -443,11 +445,12 @@ img{
     border-radius: 10px;
     margin: 0.5rem;
 }
-.postInput textarea{
+.postInput .textAreaText{
     width: 100%;
     border: none;
+    color: #49607e;
 }
-.postInput textarea::placeholder {
+.postInput .textAreaText::placeholder {
     transform: translateY(14px);
   }
 .posts{

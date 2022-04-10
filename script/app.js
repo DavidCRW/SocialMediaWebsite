@@ -5,24 +5,21 @@ const responsiveContactNames = document.querySelector(".responsiveContactNames")
 const posts = document.querySelector(".posts");
 
 const postsData = [
-    post1 = {
+    {
         name : "Amanda Miles",
-        profilePhoto : "pics/profile/profile1.jpg",
+        profilePhoto: "pics/profile/profile1.jpg",
         text: "Quisque congue a tellus in interdum. Donec ac tristique magna. Proin quis sapien aliquam ex posuere eleifend. Nam scelerisque, urna euismod facilisis vestibulum.",
-        photo : "pics/post/photo1.jpg",
-        postTime: new Date("2022.04.10 10:32"),
+        photo: "pics/post/photo1.jpg",
+        postTime: new Date("2022.04.10 10:32")
     },
-    post2 = {
+    {
         name : "Melissa Byron",
         profilePhoto : "pics/contactProfile/profile2.jpg",
-        text: "Quisque congue a tellus in interdum.Quisque congue a tellus in interdum.Quisque congue a tellus in interdum. Donec ac tristique magna. Proin quis sapien aliquam ex posuere eleifend. Nam scelerisque, urna euismod facilisis vestibulum.",
+        text : "Quisque congue a tellus in interdum.Quisque congue a tellus in interdum.Quisque congue a tellus in interdum. Donec ac tristique magna. Proin quis sapien aliquam ex posuere eleifend. Nam scelerisque, urna euismod facilisis vestibulum.",
         photo : "pics/post/photo2.jpg",
-        postTime: new Date("2022.04.9 5:32"),  
+        postTime : new Date("2022.04.9 5:32"), 
     }
 ]
-
-
-
 
 /* Functions */
 
@@ -46,6 +43,7 @@ document.querySelector(".responsiveContacts").addEventListener("click", () =>{
 
 /* Posts */
 function postsDataHTML(){
+    posts.innerHTML = "";
     postsData.forEach(element => {
         posts.insertAdjacentHTML("afterbegin",
         `<div class="post">
@@ -88,3 +86,14 @@ function postsDataHTML(){
     </div>`)});
 };
 postsDataHTML()
+
+document.querySelector(".postBtn").addEventListener("click", () =>{
+    postsData.push({
+        name : "Amanda Miles",
+        profilePhoto : "pics/profile/profile1.jpg",
+        text : document.querySelector(".textAreaText").value,
+        photo : "",
+        postTime : new Date()
+    })
+    postsDataHTML()
+})
