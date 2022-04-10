@@ -101,7 +101,7 @@ img{
     height: 37px;
 }
 
-/* ResponsiveNav */
+/* ResponsiveNavbar */
 .responsiveNav{
     display: none;
     cursor: pointer;
@@ -114,20 +114,6 @@ img{
     width: 20px;
     margin: 3px;
     background-color: #9da9b9;
-}
-.responsiveRequests{
-    display: none;
-    cursor: pointer;
-    color:#9da9b9;
-    margin-right: 6rem;
-    position: absolute;
-}
-.responsiveContacts{
-    display: none;
-    cursor: pointer;
-    color:#9da9b9;
-    position: absolute;
-    margin-right: 7.4rem;
 }
 .responsiveLinks{
     display: none;
@@ -165,6 +151,14 @@ img{
 .responsiveLinks i{
     margin-right: 5px;
 }
+
+.responsiveRequests{
+    display: none;
+    cursor: pointer;
+    color:#9da9b9;
+    margin-right: 6rem;
+    position: absolute;
+}
 .responsiveAllRequest{
     display: none;
     padding: 0.4rem;
@@ -176,6 +170,14 @@ img{
 .responsiveAllRequest .requests{
     margin-bottom: 0;
     border-radius: 0;
+}
+
+.responsiveContacts{
+    display: none;
+    cursor: pointer;
+    color:#9da9b9;
+    position: absolute;
+    margin-right: 7.4rem;
 }
 .responsiveContactNames{
     background-color: white;

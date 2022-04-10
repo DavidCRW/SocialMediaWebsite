@@ -1,20 +1,23 @@
 /* Data module */
-
-
+const responsiveLinks = document.querySelector(".responsiveLinks");
+const responsiveAllRequest = document.querySelector(".responsiveAllRequest");
+const responsiveContactNames = document.querySelector(".responsiveContactNames");
 
 /* Functions */
+
+/* Responsive Navbar */
 document.querySelector(".responsiveNav").addEventListener("click", () =>{
-    document.querySelector(".responsiveLinks").classList.toggle("toggle")
-    document.querySelector(".responsiveAllRequest").classList.remove("toggle")
-    document.querySelector(".responsiveContactNames").classList.remove("toggle")
+    responsiveLinks.classList.toggle("toggle")
+    responsiveAllRequest.classList.remove("toggle")
+    responsiveContactNames.classList.remove("toggle")
 });
 document.querySelector(".responsiveRequests").addEventListener("click", () =>{
-    document.querySelector(".responsiveAllRequest").classList.toggle("toggle")
-    document.querySelector(".responsiveContactNames").classList.remove("toggle")
-    document.querySelector(".responsiveLinks").classList.remove("toggle")
+    responsiveAllRequest.classList.toggle("toggle")
+    responsiveContactNames.classList.remove("toggle")
+    responsiveLinks.classList.remove("toggle")
 });
 document.querySelector(".responsiveContacts").addEventListener("click", () =>{
-    document.querySelector(".responsiveContactNames").classList.toggle("toggle")
-    document.querySelector(".responsiveLinks").classList.remove("toggle")
-    document.querySelector(".responsiveAllRequest").classList.remove("toggle")
+    responsiveContactNames.classList.toggle("toggle")
+    responsiveLinks.classList.remove("toggle")
+    responsiveAllRequest.classList.remove("toggle")
 })
