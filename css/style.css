@@ -435,6 +435,7 @@ img{
 .postInput{
     display: flex;
     align-items: center;
+    width: 100%;
 }
 .postInput img{
     width: 40px;
@@ -442,11 +443,13 @@ img{
     border-radius: 10px;
     margin: 0.5rem;
 }
-.postInput input{
-    height: 50px;
-    max-width: 450px;
+.postInput textarea{
+    width: 100%;
     border: none;
 }
+.postInput textarea::placeholder {
+    transform: translateY(14px);
+  }
 .posts{
     margin: 2rem 0.5rem 0rem 0.5rem;
 }
