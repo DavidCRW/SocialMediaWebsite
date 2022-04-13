@@ -738,3 +738,6 @@ img{
 .toggle{
     display: block;
 }
+.zIndex{
+    z-index: 110;
+}

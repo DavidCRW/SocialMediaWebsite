@@ -62,18 +62,34 @@ const requests = [
 /* Responsive Navbar */
 document.querySelector(".responsiveNav").addEventListener("click", () =>{
     responsiveLinks.classList.toggle("toggle")
+    responsiveLinks.classList.toggle("zIndex")
+
     responsiveAllRequest.classList.remove("toggle")
     responsiveContactNames.classList.remove("toggle")
+
+    responsiveAllRequest.classList.remove("zIndex")
+    responsiveContactNames.classList.remove("zIndex")
+
 });
 document.querySelector(".responsiveRequests").addEventListener("click", () =>{
     responsiveAllRequest.classList.toggle("toggle")
+    responsiveAllRequest.classList.toggle("zIndex")
+
     responsiveContactNames.classList.remove("toggle")
     responsiveLinks.classList.remove("toggle")
+
+    responsiveLinks.classList.remove("zIndex")
+    responsiveContactNames.classList.remove("zIndex")
 });
 document.querySelector(".responsiveContacts").addEventListener("click", () =>{
     responsiveContactNames.classList.toggle("toggle")
+    responsiveContactNames.classList.toggle("zIndex")
+
     responsiveLinks.classList.remove("toggle")
     responsiveAllRequest.classList.remove("toggle")
+
+    responsiveAllRequest.classList.remove("zIndex")
+    responsiveLinks.classList.remove("zIndex")
 })
 
 /* Profile picture */
@@ -144,8 +160,18 @@ document.querySelector(".postBtn").addEventListener("click", () =>{
 /* Contacts */
 function contactsOnload(){
     document.querySelector(".contactNames").innerHTML = "";
+    document.querySelector(".responsiveContactNames").innerHTML = "";
     contacts.forEach(element => {
         document.querySelector(".contactNames").insertAdjacentHTML("afterbegin",
+        `<div class="contactName">
+        <div class="nameAndimg">
+           <img src=${element.photo}>
+           <h4>${element.name}</h4>
+       </div>
+       <i class="fa-solid fa-ellipsis dots" style="color: #bbc4cf;"></i>
+       </div>`
+        )
+        document.querySelector(".responsiveContactNames").insertAdjacentHTML("afterbegin",
         `<div class="contactName">
         <div class="nameAndimg">
            <img src=${element.photo}>
@@ -174,7 +200,21 @@ function requestsOnload(){
                 </div>
             </div>
         `
-        )       
+        )    
+        document.querySelector(".responsiveAllRequest").insertAdjacentHTML("afterbegin",
+        `
+        <div class="requests">
+                <div class="requestProfile">
+                    <img src=${element.photo}>
+                    <p><strong>${element.name}</strong> wants to add you to friend</p>
+                </div>
+                <div class="buttons">
+                    <button class="btn accept requestBtn">Accept</button>
+                    <button class="btn decline requestBtn">Decline</button>
+                </div>
+            </div>
+        `
+        ) 
     });
 }
 requestsOnload()
