@@ -3,6 +3,9 @@ const responsiveLinks = document.querySelector(".responsiveLinks");
 const responsiveAllRequest = document.querySelector(".responsiveAllRequest");
 const responsiveContactNames = document.querySelector(".responsiveContactNames");
 const posts = document.querySelector(".posts");
+const navbarProfilePicture = document.querySelector(".profilePicture");
+const leftSideProfilePicture = document.querySelector(".profile");
+const postInput = document.querySelector(".postInput");
 
 const postsData = [
     {
@@ -20,7 +23,40 @@ const postsData = [
         postTime : new Date("2022.04.9 5:32"), 
     }
 ]
+const contacts = [
+    {
+        name: "Amanda Miles",
+        photo: "pics/contactProfile/profile1.jpg"
+    },
+    {
+        name: "Melissa Byrion",
+        photo: "pics/contactProfile/profile2.jpg"
+    },
+    {
+        name: "Billy Rosewood",
+        photo: "pics/contactProfile/profile3.jpg"
+    },
+    {
+        name: "Katty Monroe",
+        photo: "pics/contactProfile/profile4.jpg"
+    },
+    {
+        name: "Kurt Williamson",
+        photo: "pics/contactProfile/profile5.jpg"
+    }
+]
+const requests = [
+    {
+        name: "Tyler Barrows",
+        photo: "pics/requestProfile/profile1.jpg"
+    },
+    {
+        name: "Ronald Bezos",
+        photo: "pics/requestProfile/profile2.jpg"
+    }
+]
 
+/* ------------------------------------------------------- */
 /* Functions */
 
 /* Responsive Navbar */
@@ -40,6 +76,13 @@ document.querySelector(".responsiveContacts").addEventListener("click", () =>{
     responsiveAllRequest.classList.remove("toggle")
 })
 
+/* Profile picture */
+function profilePictureOnload(){
+    navbarProfilePicture.firstElementChild.src = postsData[0].profilePhoto;
+    leftSideProfilePicture.firstElementChild.src = postsData[0].profilePhoto;
+    postInput.firstElementChild.src = postsData[0].profilePhoto;
+}
+profilePictureOnload()
 
 /* Posts */
 function postsDataHTML(){
@@ -96,4 +139,53 @@ document.querySelector(".postBtn").addEventListener("click", () =>{
         postTime : new Date()
     })
     postsDataHTML()
+})
+
+/* Contacts */
+function contactsOnload(){
+    document.querySelector(".contactNames").innerHTML = "";
+    contacts.forEach(element => {
+        document.querySelector(".contactNames").insertAdjacentHTML("afterbegin",
+        `<div class="contactName">
+        <div class="nameAndimg">
+           <img src=${element.photo}>
+           <h4>${element.name}</h4>
+       </div>
+       <i class="fa-solid fa-ellipsis dots" style="color: #bbc4cf;"></i>
+       </div>`
+        )
+    });
+}
+contactsOnload()
+
+/* Requests */
+function requestsOnload(){
+    requests.forEach(element => {
+        document.querySelector(".allRequest").insertAdjacentHTML("afterbegin",
+        `
+        <div class="requests">
+                <div class="requestProfile">
+                    <img src=${element.photo}>
+                    <p><strong>${element.name}</strong> wants to add you to friend</p>
+                </div>
+                <div class="buttons">
+                    <button class="btn accept requestBtn">Accept</button>
+                    <button class="btn decline requestBtn">Decline</button>
+                </div>
+            </div>
+        `
+        )       
+    });
+}
+requestsOnload()
+
+/* Add or remove requests */
+const requestBtn = document.querySelectorAll(".requestBtn");
+requestBtn.forEach(element => {
+    element.addEventListener("click", () => {
+        let reqProfileData = element.parentNode.parentNode.firstElementChild;
+        contacts.push({name: reqProfileData.lastElementChild.firstElementChild.innerHTML, photo: reqProfileData.firstElementChild.src})
+        element.parentNode.parentNode.remove()
+        contactsOnload()
+    })
 })
